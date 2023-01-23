@@ -1,43 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Drawing;
 
 namespace WpfApp1
 
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            TextBlock.Visibility = Visibility.Hidden;
+            label.Visibility = Visibility.Hidden;
         }
 
         private string fileName = "";
 
-        private void ButtonOpenFile_Click(object sender, RoutedEventArgs e)
+        private void ButtonOpenFile_Click(object sender, RoutedEventArgs e) //выводим исходное изображение на экран
         {
-            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-            Nullable<bool> result = openFileDlg.ShowDialog();
-            fileName = openFileDlg.FileName;
-            imageDialog1.Source = new BitmapImage(new Uri(fileName));
+            try
+            {
+                Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+                openFileDlg.Filter = "Файлы рисунков (*.bmp, *.jpg)|*.bmp;*.jpg;*.tif";
+                Nullable<bool> result = openFileDlg.ShowDialog();
+                fileName = openFileDlg.FileName;
+                imageDialog1.Source = new BitmapImage(new Uri(fileName));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите картинку");
+            }
         }
 
-        private void ButtonMakeGray_Click(object sender, RoutedEventArgs e)
+        private void ButtonMakeGray_Click(object sender, RoutedEventArgs e) // делаем исходное изображение черно-белым
         {
             if (imageDialog1.Source != null)
             {
@@ -66,7 +62,7 @@ namespace WpfApp1
             }
         }
 
-        private void ButtonGrayCounter_Click(object sender, RoutedEventArgs e)
+        private void ButtonGrayCounter_Click(object sender, RoutedEventArgs e) // расчитываем количество серого на исходном изображении
         {
             if (imageDialog1.Source != null)
             {
@@ -82,8 +78,9 @@ namespace WpfApp1
                         if (R == G && G == B)
                             count++;
                     }
-                double percent = count / ((double)bmpInput.Width * (double)bmpInput.Height) * 100;
-                label.Content = percent.ToString() + " %";
+                label.Content = (count / ((double)bmpInput.Width * (double)bmpInput.Height) * 100).ToString() + " %";
+                label.Visibility = Visibility.Visible;
+                TextBlock.Visibility = Visibility.Visible;
             }
             else
             {

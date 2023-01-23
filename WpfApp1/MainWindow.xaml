@@ -13,7 +13,7 @@
         <Button x:Name="ButtonMakeGray" Content="Сделать серым" HorizontalAlignment="Left" Margin="29,82,0,0" VerticalAlignment="Top" Click="ButtonMakeGray_Click" Height="27" Width="103"/>
         <Label x:Name="label"  Content="Label" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top"/>
         <Button x:Name="ButtonGrayCounter" Content="Расчитать кол-во серого" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" Height="42" Width="141" Click="ButtonGrayCounter_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,323,0,0" TextWrapping="Wrap" Text="Количество &#10;серого равно:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="10,323,0,0" TextWrapping="Wrap" Text="Количество &#10;серого равно:" VerticalAlignment="Top" FontWeight="Bold" Visibility="Visible"/>
 
 
     </Grid>
