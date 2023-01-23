@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1000">
+    <Grid>
+        <Button x:Name="ButtonOpenFile" Content="Открыть картинку" HorizontalAlignment="Left" Margin="29,35,0,0" VerticalAlignment="Top" Click="ButtonOpenFile_Click" Height="27"/>
+        <Image x:Name="imageDialog1" HorizontalAlignment="Left" Height="400" Margin="170,33,0,0" VerticalAlignment="Top" Width="400"/>
+        <Image x:Name="imageDialog2" HorizontalAlignment="Left" Height="400" Margin="586,33,0,0" VerticalAlignment="Top" Width="400"/>
+        <Button x:Name="ButtonMakeGray" Content="Сделать серым" HorizontalAlignment="Left" Margin="29,82,0,0" VerticalAlignment="Top" Click="ButtonMakeGray_Click" Height="27" Width="103"/>
+        <Label x:Name="label"  Content="Label" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonGrayCounter" Content="Расчитать кол-во серого" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" Height="42" Width="141" Click="ButtonGrayCounter_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,323,0,0" TextWrapping="Wrap" Text="Количество &#10;серого равно:" VerticalAlignment="Top" FontWeight="Bold"/>
+
+
+    </Grid>
+</Window>
